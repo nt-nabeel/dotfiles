@@ -1,0 +1,18 @@
+#!/bin/zsh
+# install homebrew if not installed
+if ! type /opt/homebrew/bin/brew &>/dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew update
+  brew upgrade
+  brew install tmux exa lazygit
+  brew install --cask alacritty
+  brew install --HEAD neovim
+fi
+
+# add homebrew to path
+eval $(/opt/homebrew/bin/brew shellenv)
+
+# install homebrew zsh completions
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi

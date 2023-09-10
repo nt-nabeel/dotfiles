@@ -1,0 +1,6 @@
+#!/bin/zsh
+alias vim=nvim
+alias ls='exa --icons'
+alias la='exa --icons --all'
+alias ll='exa --icons --long'
+alias lt='exa --icons --tree'

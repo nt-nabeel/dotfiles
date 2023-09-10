@@ -5,4 +5,8 @@ install:
 	@echo Installation tmux ...
 	./cmd/create-symbolic-link $(shell pwd)/tmux $(HOME)/.config/tmux
 	./cmd/create-symbolic-link $(shell pwd)/tmux.conf $(HOME)/.tmux.conf
+	@echo Installation zsh ...
+	./cmd/create-symbolic-link $(shell pwd)/zsh $(HOME)/.config/zsh
+	./cmd/create-symbolic-link $(shell pwd)/zshrc $(HOME)/.zshrc
+	./cmd/create-symbolic-link $(shell pwd)/zshrc $(HOME)/.zprofile
 	@echo Installation dotfiles finish
