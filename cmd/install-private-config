@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ -d ./private-config ]; then
+	echo Installation private config ...
+	./cmd/create-symbolic-link $(pwd)/private-config $HOME/.config/private-config
+fi

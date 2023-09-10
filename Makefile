@@ -10,4 +10,5 @@ install:
 	./cmd/create-symbolic-link $(shell pwd)/zshrc $(HOME)/.zshrc
 	./cmd/create-symbolic-link $(shell pwd)/zshrc $(HOME)/.zprofile
 	./cmd/install-nvchad
+	./cmd/install-private-config
 	@echo Installation dotfiles finish
