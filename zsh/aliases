@@ -1,6 +1,11 @@
 #!/bin/zsh
 alias vim=nvim
+
 alias ls='exa --icons'
 alias la='exa --icons --all'
 alias ll='exa --icons --long'
 alias lt='exa --icons --tree'
+
+alias pyenv-activate='eval "$(pyenv init -)"'
+alias venv-init='virtualenv venv'
+alias venv-activate='source venv/bin/activate'
