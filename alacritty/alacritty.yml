@@ -1,0 +1,8 @@
+live_config_reload: true
+
+import:
+  - ~/.config/alacritty/env.yml
+  - ~/.config/alacritty/window.yml
+  - ~/.config/alacritty/scrolling.yml
+  - ~/.config/alacritty/font.yml
+  - ~/.config/alacritty/shell.yml
