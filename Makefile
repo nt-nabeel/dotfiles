@@ -12,3 +12,7 @@ install:
 	./cmd/install-nvchad
 	./cmd/install-private-config
 	@echo Installation dotfiles finish
+
+enabel-cmd:
+	@echo Enable cmd
+	@chmod +x ./cmd/*
