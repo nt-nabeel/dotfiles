@@ -9,4 +9,5 @@ install:
 	./cmd/create-symbolic-link $(shell pwd)/zsh $(HOME)/.config/zsh
 	./cmd/create-symbolic-link $(shell pwd)/zshrc $(HOME)/.zshrc
 	./cmd/create-symbolic-link $(shell pwd)/zshrc $(HOME)/.zprofile
+	./cmd/install-nvchad
 	@echo Installation dotfiles finish

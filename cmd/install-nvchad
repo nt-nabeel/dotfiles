@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ ! -d ~/.config/nvim ]; then
+	echo Installation nvchad ...
+  git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+	./cmd/create-symbolic-link $(pwd)/nvchad-custom $HOME/.config/nvim/lua/custom
+fi
