@@ -1,0 +1,45 @@
+#!/bin/sh
+
+link_path="$1"
+target_path="$2"
+
+if [ ! -e "$(dirname "$target_path")" ]; then
+  echo "The target path does not exist!"
+  exit 1
+fi
+
+if [ -e "$target_path" ]; then
+  if [ -L "$target_path" ]; then
+    current_link_path="$(readlink -f "$target_path")"
+    if [ "$current_link_path" = "$link_path" ]; then
+      echo "The symbolic link already exists and points to the correct path."
+      exit 1
+    else
+      echo "The symbolic link already exists but points to a different path."
+      read -p "Do you want to remove or backup the existing link? (r/b) " remove_or_backup
+      case $remove_or_backup in
+        r) rm "$target_path"
+           echo "The existing symbolic link has been removed.";;
+        b) mv "$target_path" "$target_path.bak"
+           echo "The existing symbolic link has been backed up as $target_path.bak.";;
+        *) echo "Invalid option. Exiting."
+           exit 1;;
+      esac
+    fi
+  else
+    echo "The target path already exists as a directory."
+    read -p "Do you want to remove or backup the existing directory? (r/b) " remove_or_backup
+    case $remove_or_backup in
+      r) rm -r "$target_path"
+         echo "The existing directory has been removed.";;
+      b) mv "$target_path" "$target_path.bak"
+         echo "The existing directory has been backed up as $target_path.bak.";;
+      *) echo "Invalid option. Exiting."
+         exit 1;;
+    esac
+  fi
+fi
+
+ln -sf "$link_path" "$target_path"
+
+echo "The symbolic link from $link_path to $target_path has been created successfully."
