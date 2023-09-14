@@ -1,0 +1,42 @@
+# "#2b3339",
+# "#323c41",
+# "#3a4248",
+# "#424a50",
+# "#4a5258",
+# "#d3c6aa",
+# "#ddd0b4",
+# "#e7dabe",
+# "#7fbbb3",
+# "#d699b6",
+# "#83c092",
+# "#dbbc7f",
+# "#e69875",
+# "#a7c080",
+# "#e67e80",
+# "#d699b6",
+
+schemes:
+  everforest: &everforest
+    primary:
+      background: "#2b3339"
+      foreground: "#d3c6aa"
+    normal:
+      black: "#272f35"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7393b3"
+      magenta: "#d699b6"
+      cyan: "#95d1c9"
+      white: "#d3c6aa"
+    bright:
+      black: "#272f35"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7393b3"
+      magenta: "#d699b6"
+      cyan: "#95d1c9"
+      white: "#d3c6aa"
+
+colors: *everforest
