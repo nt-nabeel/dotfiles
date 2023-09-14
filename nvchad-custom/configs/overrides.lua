@@ -40,6 +40,7 @@ M.mason = {
     "clangd",
     "sourcery",
     "tailwindcss-language-server",
+    "sonarlint-language-server",
   },
 }
 
