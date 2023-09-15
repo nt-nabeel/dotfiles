@@ -41,6 +41,7 @@ M.mason = {
     "sourcery",
     "tailwindcss-language-server",
     "sonarlint-language-server",
+    "dprint",
   },
 }
 
