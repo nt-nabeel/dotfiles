@@ -1,0 +1,28 @@
+[general]
+cpus = 4
+editor = "vi"
+doas = false
+language = "en-US"
+noconfirm = false
+
+[aur]
+build = "/home/nt-nabeel/.cache/aura/builds"
+cache = "/home/nt-nabeel/.cache/aura/cache"
+clones = "/home/nt-nabeel/.cache/aura/packages"
+hashes = "/home/nt-nabeel/.cache/aura/hashes"
+chroot = []
+ignores = []
+git = false
+hotedit = false
+shellcheck = false
+diff = false
+delmakedeps = false
+clean = false
+warn_unknowns = true
+nocheck = false
+skipdepcheck = false
+reverse = false
+
+[backups]
+snapshots = "/home/nt-nabeel/.cache/aura/snapshots"
+automatic = true

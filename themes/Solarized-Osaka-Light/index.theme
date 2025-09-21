@@ -1,0 +1,12 @@
+Type=X-GNOME-Metatheme
+[Desktop Entry]
+Name=Solarized-Osaka-Light
+Comment=An Flat Gtk+ theme based on Elegant Design
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Solarized-Osaka-Light
+MetacityTheme=Solarized-Osaka-Light
+IconTheme=Tela-circle
+CursorTheme=Solarized-Osaka-cursors
+ButtonLayout=close,minimize,maximize:menu

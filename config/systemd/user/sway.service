@@ -1,0 +1,13 @@
+[Unit]
+Description=Sway Wayland compositor
+After=graphical.target
+
+[Service]
+ExecStart=/usr/bin/sway
+Restart=always
+Environment=MOZ_ENABLE_WAYLAND=1
+Environment=XDG_CURRENT_DESKTOP=sway
+Environment=XDG_SESSION_TYPE=wayland
+
+[Install]
+WantedBy=default.target
