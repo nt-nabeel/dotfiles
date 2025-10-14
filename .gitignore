@@ -1,0 +1,19 @@
+# Backup files created by install.sh
+backup/
+
+# Claude AI files
+.claude/
+CLAUDE.md
+
+# Fish shell universal variables (auto-generated, not portable)
+config/fish/fish_variables
+
+# Neovim lazy.nvim lock file (auto-generated, not needed in repo)
+config/nvim/lazy-lock.json
+
+# Systemd symlinks (auto-generated, not part of dotfiles)
+config/systemd/user/default.target.wants/
+
+# Solarized osaka dark gtk icons
+local/share/icons
+local/share/themes

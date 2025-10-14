@@ -1,0 +1,15 @@
+[Unit]
+Description=Sway Wayland compositor
+After=graphical.target
+
+[Service]
+ExecStart=/usr/bin/fish -c 'exec sway'
+Restart=always
+Environment=XDG_CURRENT_DESKTOP=sway
+Environment=XDG_SESSION_TYPE=wayland
+Environment=MOZ_ENABLE_WAYLAND=1
+Environment=QT_QPA_PLATFORM=wayland
+Environment=ELECTRON_OZONE_PLATFORM_HINT=auto
+
+[Install]
+WantedBy=default.target
