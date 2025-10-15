@@ -14,7 +14,7 @@ AURA_PKGS=(
   sway waybar wezterm rofi brightnessctl wl-clipboard unzip zoxide starship
   btop openssh keychain ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
   noto-fonts-emoji nwg-look pavucontrol lazygit thunar mpv blueman
-  network-manager-applet bat fd xdg-utils eza grim slurp
+  network-manager-applet bat fd xdg-utils eza grim slurp jq
   gtk-engine-murrine kanshi gammastep
 )
 
@@ -204,6 +204,7 @@ fi
 link "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
 link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
 link "$DOTFILES_DIR/claude/commands" "$HOME/.claude/commands"
+link "$DOTFILES_DIR/claude/scripts" "$HOME/.claude/scripts"
 
 # 2. Link ~/.config/*
 for dir in "$DOTFILES_DIR/config/"*; do

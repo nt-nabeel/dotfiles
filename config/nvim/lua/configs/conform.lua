@@ -70,20 +70,20 @@ local mapping_formatters = {
   },
 }
 
+-- Generate formatters table from the mapping
+local formatters_by_ft = {}
+for _, ft_map in pairs(mapping_formatters) do
+  for ft, fmt_list in pairs(ft_map) do
+    if not formatters_by_ft[ft] then
+      formatters_by_ft[ft] = {}
+    end
+    vim.list_extend(formatters_by_ft[ft], fmt_list)
+  end
+end
+
 local options = {
   -- Extra formatters that are not in the mapping above
-  formatters_by_ft = function()
-    local formatters = {}
-    for _, ft_map in pairs(mapping_formatters) do
-      for ft, fmt_list in pairs(ft_map) do
-        if not formatters[ft] then
-          formatters[ft] = {}
-        end
-        vim.list_extend(formatters[ft], fmt_list)
-      end
-    end
-    return formatters
-  end,
+  formatters_by_ft = formatters_by_ft,
 
   format_on_save = {
     timeout_ms = 500,
