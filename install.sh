@@ -15,6 +15,7 @@ AURA_PKGS=(
   btop openssh keychain ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
   noto-fonts-emoji nwg-look pavucontrol lazygit thunar mpv blueman
   network-manager-applet bat fd xdg-utils eza grim slurp
+  gtk-engine-murrine kanshi gammastep
 )
 
 AURA_BIN_PKGS=(
@@ -129,82 +130,64 @@ install_claude() {
   fi
 }
 
-copy_icons_and_themes() {
-  local source_branch="origin/gtk"
+install_osaka_theme() {
   local force_refresh="$1"
-  local temp_dir="/tmp/dotfiles-icons-themes-$$"
-  local icons_dir="$DOTFILES_DIR/local/share/icons"
-  local themes_dir="$DOTFILES_DIR/local/share/themes"
+  local osaka_dir="$DOTFILES_DIR/solarized-osaka-gtk-theme"
+  local icons_dir="$HOME/.local/share/icons/Osaka_Dark"
+  local themes_dir="$HOME/.local/share/themes/Osaka-Dark"
 
   # Check if icons and themes already exist
   local icons_exist=false
   local themes_exist=false
 
-  if [ -d "$icons_dir" ] && [ "$(ls -A "$icons_dir" 2>/dev/null)" ]; then
+  if [ -d "$icons_dir" ]; then
     icons_exist=true
   fi
 
-  if [ -d "$themes_dir" ] && [ "$(ls -A "$themes_dir" 2>/dev/null)" ]; then
+  if [ -d "$themes_dir" ]; then
     themes_exist=true
   fi
 
   # Skip if both exist and no force refresh is requested
   if [ "$icons_exist" = true ] && [ "$themes_exist" = true ] && [ "$force_refresh" != "--force" ]; then
-    echo "🎨 Icons and themes already exist, skipping copy (use --force to refresh)"
+    echo "🎨 Osaka theme already installed, skipping (use --force to refresh)"
     return 0
   fi
 
-  echo "🎨 Copying icons and themes from branch: $source_branch"
+  echo "🎨 Installing Solarized Osaka GTK theme..."
 
-  # Create temporary directory
-  mkdir -p "$temp_dir"
+  # Clone or update the repository
+  if [ ! -d "$osaka_dir" ]; then
+    echo "📥 Cloning Osaka GTK theme repository..."
+    git clone https://github.com/Fausto-Korpsvart/Osaka-GTK-Theme.git "$osaka_dir"
+  elif [ "$force_refresh" = "--force" ]; then
+    echo "🔄 Updating Osaka GTK theme repository..."
+    cd "$osaka_dir"
+    git pull origin main
+    cd "$DOTFILES_DIR"
+  fi
 
-  # Create local/share directories if they don't exist
-  mkdir -p "$icons_dir"
-  mkdir -p "$themes_dir"
+  # Create target directories
+  mkdir -p "$HOME/.local/share/icons"
+  mkdir -p "$HOME/.local/share/themes"
 
-  # Fetch and copy icons from source branch
+  # Install icons
   if [ "$icons_exist" = false ] || [ "$force_refresh" = "--force" ]; then
-    if git show "$source_branch:local/share/icons" &>/dev/null; then
-      echo "📁 Copying icons from $source_branch branch..."
-      git archive "$source_branch" "local/share/icons" | tar -x -C "$temp_dir" 2>/dev/null || true
-      if [ -d "$temp_dir/local/share/icons" ]; then
-        # Clear existing icons if forcing refresh
-        if [ "$force_refresh" = "--force" ]; then
-          rm -rf "$icons_dir"/*
-        fi
-        cp -r "$temp_dir/local/share/icons/"* "$icons_dir/" 2>/dev/null || true
-        echo "✅ Icons copied successfully"
-      fi
-    else
-      echo "⚠️ No icons directory found in $source_branch branch"
-    fi
-  else
-    echo "📁 Icons already exist, skipping"
+    echo "📁 Installing Osaka Dark icons..."
+    cp -rf "$osaka_dir/icons/Osaka_Dark" "$HOME/.local/share/icons/"
+    echo "✅ Icons installed successfully"
   fi
 
-  # Fetch and copy themes from source branch
+  # Install theme
   if [ "$themes_exist" = false ] || [ "$force_refresh" = "--force" ]; then
-    if git show "$source_branch:local/share/themes" &>/dev/null; then
-      echo "📁 Copying themes from $source_branch branch..."
-      git archive "$source_branch" "local/share/themes" | tar -x -C "$temp_dir" 2>/dev/null || true
-      if [ -d "$temp_dir/local/share/themes" ]; then
-        # Clear existing themes if forcing refresh
-        if [ "$force_refresh" = "--force" ]; then
-          rm -rf "$themes_dir"/*
-        fi
-        cp -r "$temp_dir/local/share/themes/"* "$themes_dir/" 2>/dev/null || true
-        echo "✅ Themes copied successfully"
-      fi
-    else
-      echo "⚠️ No themes directory found in $source_branch branch"
-    fi
-  else
-    echo "📁 Themes already exist, skipping"
+    echo "📁 Installing Osaka Dark GTK theme..."
+    cd "$osaka_dir/themes"
+    ./install.sh --dest "$HOME/.local/share/themes" --color dark --libadwaita
+    cd "$DOTFILES_DIR"
+    echo "✅ Theme installed successfully"
   fi
 
-  # Clean up temporary directory
-  rm -rf "$temp_dir"
+  echo "🎉 Solarized Osaka theme installation complete!"
 }
 
 # === Main ===
@@ -228,10 +211,7 @@ for dir in "$DOTFILES_DIR/config/"*; do
   link "$dir" "$CONFIG_DIR/$name"
 done
 
-# 3. Copy icons and themes from gtk branch
-copy_icons_and_themes "$FORCE_ICONS_THEMES"
-
-# 4. Link ~/.local/share/*
+# 3. Link ~/.local/share/*
 for dir in "$DOTFILES_DIR/local/share/"*; do
   name=$(basename "$dir")
   link "$dir" "$HOME/.local/share/$name"
@@ -245,6 +225,9 @@ install_aura_bin_pkgs
 install_uv
 install_fnm
 install_claude
+
+# 5. Install Solarized Osaka GTK theme
+install_osaka_theme "$FORCE_ICONS_THEMES"
 
 echo "🎉 Setup complete!"
 echo "Backup (if any) stored in: $BACKUP_DIR"

@@ -21,7 +21,7 @@ set $menu rofi -show drun
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg #001419 solid_color
+output * bg "~/.local/share/wallpapers/Solarized Hexagons Wallpaper.png" fill
 #
 # Example configuration:
 #
@@ -230,5 +230,7 @@ hide_edge_borders smart
 
 exec_always nm-applet --indicator
 exec_always blueman-applet
+exec kanshi
+exec gammastep -l -7.9666204:112.6326321 -t 6500:4000 &
 
 include /etc/sway/config.d/*

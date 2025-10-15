@@ -36,7 +36,7 @@ This repository contains a comprehensive set of configuration files for a fully-
 ├── claude/                    # Claude Code settings
 │   ├── settings.json         # Claude configuration
 │   └── commands/             # Custom Claude commands
-├── local/share/              # Local data and themes (copied from gtk branch)
+├── local/share/              # Local data (wallpapers, etc.)
 ├── .gitignore               # Git ignore rules
 ├── gitconfig                # Git configuration
 └── install.sh               # Installation script
@@ -63,7 +63,7 @@ This repository contains a comprehensive set of configuration files for a fully-
    ./install.sh
    ```
 
-3. **Force refresh icons and themes** (optional):
+3. **Force refresh Osaka theme** (optional):
    ```bash
    ./install.sh --force-icons-themes
    ```
@@ -73,7 +73,7 @@ The installation script will:
 - Set up development tools (`uv`, `fnm`, `claude-code`)
 - Create symbolic links for all configuration files
 - Back up existing configurations to `backup/` directory
-- Copy icons and themes from the separate `gtk` branch
+- Install Solarized Osaka GTK theme from external repository
 
 ## 🛠️ Configured Tools
 
@@ -93,9 +93,11 @@ The installation script will:
 |------|-------------|---------------|
 | **Sway** | Tiling window manager | `config/sway/config` - Vim-style keybindings |
 | **Waybar** | Status bar | `config/waybar/` - Custom styling and modules |
+| **Kanshi** | Display management | `config/kanshi/config` - Automatic monitor profiles |
 | **Rofi** | Application launcher | `config/rofi/` - Custom themes and shortcuts |
 | **WezTerm** | Terminal emulator | `config/wezterm/` - Solarized Osaka theme |
 | **Dunst** | Notification daemon | `config/dunst/` |
+| **Gammastep** | Blue light filter | Started via Sway config with geo-location |
 
 ### Development Tools
 
@@ -156,8 +158,9 @@ The configuration uses a consistent **Solarized Osaka Dark** color scheme across
 - Shell prompt (Starship)
 - Code editor (Neovim)
 - Status bar (Waybar)
+- GTK Applications (via Osaka GTK theme)
 
-Icons and themes are managed separately in the `gtk` branch to keep the main repository clean.
+The Solarized Osaka GTK theme is automatically installed from the official GitHub repository during setup.
 
 ## 📦 Package Management
 
