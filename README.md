@@ -53,12 +53,14 @@ This repository contains a comprehensive set of configuration files for a fully-
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/nt-nabeel/dotfiles.git ~/.dotfiles
    cd ~/.dotfiles
    ```
 
 2. **Run the installation script**:
+
    ```bash
    ./install.sh
    ```
@@ -69,6 +71,7 @@ This repository contains a comprehensive set of configuration files for a fully-
    ```
 
 The installation script will:
+
 - Install required system packages via `pacman` and `aura` (AUR helper)
 - Set up development tools (`uv`, `fnm`, `claude-code`)
 - Create symbolic links for all configuration files
@@ -79,43 +82,43 @@ The installation script will:
 
 ### Development Environment
 
-| Tool | Description | Configuration |
-|------|-------------|---------------|
-| **Neovim** | Modern Vim-based editor with LSP | `config/nvim/` - NvChad-based with custom configs |
-| **Fish** | User-friendly shell with autosuggestions | `config/fish/` - Modular with tool integrations |
-| **Git** | Version control | `gitconfig` - Personalized settings |
-| **Lazygit** | Terminal Git UI | `config/lazygit/` |
-| **Biome** | JavaScript/TypeScript formatter | `config/biome.json` |
+| Tool        | Description                              | Configuration                                     |
+| ----------- | ---------------------------------------- | ------------------------------------------------- |
+| **Neovim**  | Modern Vim-based editor with LSP         | `config/nvim/` - NvChad-based with custom configs |
+| **Fish**    | User-friendly shell with autosuggestions | `config/fish/` - Modular with tool integrations   |
+| **Git**     | Version control                          | `gitconfig` - Personalized settings               |
+| **Lazygit** | Terminal Git UI                          | `config/lazygit/`                                 |
+| **Biome**   | JavaScript/TypeScript formatter          | `config/biome.json`                               |
 
 ### Window Management & UI
 
-| Tool | Description | Configuration |
-|------|-------------|---------------|
-| **Sway** | Tiling window manager | `config/sway/config` - Vim-style keybindings |
-| **Waybar** | Status bar | `config/waybar/` - Custom styling and modules |
-| **Kanshi** | Display management | `config/kanshi/config` - Automatic monitor profiles |
-| **Rofi** | Application launcher | `config/rofi/` - Custom themes and shortcuts |
-| **WezTerm** | Terminal emulator | `config/wezterm/` - Solarized Osaka theme |
-| **Dunst** | Notification daemon | `config/dunst/` |
-| **Gammastep** | Blue light filter | Started via Sway config with geo-location |
+| Tool          | Description           | Configuration                                       |
+| ------------- | --------------------- | --------------------------------------------------- |
+| **Sway**      | Tiling window manager | `config/sway/config` - Vim-style keybindings        |
+| **Waybar**    | Status bar            | `config/waybar/` - Custom styling and modules       |
+| **Kanshi**    | Display management    | `config/kanshi/config` - Automatic monitor profiles |
+| **Rofi**      | Application launcher  | `config/rofi/` - Custom themes and shortcuts        |
+| **WezTerm**   | Terminal emulator     | `config/wezterm/` - Solarized Osaka theme           |
+| **Dunst**     | Notification daemon   | `config/dunst/`                                     |
+| **Gammastep** | Blue light filter     | Started via Sway config with geo-location           |
 
 ### Development Tools
 
-| Tool | Purpose | Configuration |
-|------|---------|---------------|
-| **uv** | Python package management | `config/fish/conf.d/uv.env.fish` |
-| **fnm** | Node.js version management | `config/fish/conf.d/fnm.fish` |
-| **bat** | Enhanced `cat` with syntax highlighting | `config/fish/conf.d/bat.fish` |
-| **eza** | Modern `ls` replacement | `config/fish/conf.d/eza.fish` |
-| **zoxide** | Smart directory navigation | `config/fish/conf.d/zoxide.fish` |
-| **starship** | Custom shell prompt | `config/fish/conf.d/starship.fish` |
+| Tool         | Purpose                                 | Configuration                      |
+| ------------ | --------------------------------------- | ---------------------------------- |
+| **uv**       | Python package management               | `config/fish/conf.d/uv.env.fish`   |
+| **fnm**      | Node.js version management              | `config/fish/conf.d/fnm.fish`      |
+| **bat**      | Enhanced `cat` with syntax highlighting | `config/fish/conf.d/bat.fish`      |
+| **eza**      | Modern `ls` replacement                 | `config/fish/conf.d/eza.fish`      |
+| **zoxide**   | Smart directory navigation              | `config/fish/conf.d/zoxide.fish`   |
+| **starship** | Custom shell prompt                     | `config/fish/conf.d/starship.fish` |
 
 ### AI & Productivity
 
-| Tool | Description | Configuration |
-|------|-------------|---------------|
+| Tool            | Description                      | Configuration                            |
+| --------------- | -------------------------------- | ---------------------------------------- |
 | **Claude Code** | AI-powered development assistant | `claude/` - Custom commands and settings |
-| **btop** | Resource monitor | `config/btop/` |
+| **btop**        | Resource monitor                 | `config/btop/`                           |
 
 ## ⌨️ Key Features
 
@@ -147,6 +150,7 @@ The installation script will:
 ### Claude Code Integration
 
 Custom commands for enhanced productivity:
+
 - `/check-docs`: Documentation health check and coverage analysis
 - `/suggest-commit`: Intelligent conventional commit message suggestions
 - `/update-docs`: Automatic documentation updates based on code changes
@@ -154,6 +158,7 @@ Custom commands for enhanced productivity:
 ## 🎨 Theming
 
 The configuration uses a consistent **Solarized Osaka Dark** color scheme across:
+
 - Terminal (WezTerm)
 - Shell prompt (Starship)
 - Code editor (Neovim)

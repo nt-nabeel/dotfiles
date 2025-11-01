@@ -5,7 +5,7 @@ function random_string
     end
     set charset $argv[2]
     if test -z "$charset"
-        set charset 'a-z0-9'
+        set charset a-z0-9
     end
     set str ""
     while test (string length $str) -lt $length

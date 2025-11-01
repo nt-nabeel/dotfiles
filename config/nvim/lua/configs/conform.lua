@@ -17,12 +17,20 @@ local mapping_formatters = {
     less = { "prettier" },
   },
 
+  dart = {
+    dart = { "dart_format" },
+  },
+
   docker = {
     dockerfile = { "dockerfmt" },
   },
 
   fish = {
     fish = { "fish_indent " },
+  },
+
+  go = {
+    go = { "goimports", "gofumpt" },
   },
 
   html = {

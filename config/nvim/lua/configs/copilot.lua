@@ -2,6 +2,7 @@ local M = {}
 
 M.options = {
   copilot = {
+    copilot_node_command = vim.fn.getenv "FNM_DIR" .. "/aliases/lts-latest/bin/node",
     suggestion = { enabled = false },
     panel = { enabled = false },
     filetypes = {
@@ -11,7 +12,7 @@ M.options = {
       gitrebase = false,
       help = false,
       hgcommit = false,
-      markdown = false,
+      markdown = true,
       svn = false,
       yaml = true,
     },

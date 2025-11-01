@@ -1,10 +1,10 @@
 profile {
-     output "ASUSTek COMPUTER INC XG27ACS SBLMTF004505" mode 2560x1440@143.996Hz
+     output "ASUSTek COMPUTER INC XG27ACS SBLMTF004505" mode 2560x1440@59.951Hz
 }
 
 profile {
      output "eDP-1" disable
-     output "ASUSTek COMPUTER INC XG27ACS SBLMTF004505" mode 2560x1440@143.996Hz
+     output "ASUSTek COMPUTER INC XG27ACS SBLMTF004505" mode 2560x1440@59.951Hz
 }
 
 profile {

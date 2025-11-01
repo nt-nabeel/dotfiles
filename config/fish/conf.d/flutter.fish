@@ -1,0 +1,1 @@
+set ANDROID_HOME $HOME$HOME/Android/Sdk

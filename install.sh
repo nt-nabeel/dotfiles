@@ -19,7 +19,7 @@ AURA_PKGS=(
 )
 
 AURA_BIN_PKGS=(
-  zen-browser-bin
+  zen-browser-bin opencode-bin
 )
 
 # === Functions ===
@@ -95,7 +95,7 @@ install_aura_bin_pkgs() {
   done
   if [ ${#missing[@]} -gt 0 ]; then
     echo "📦 Installing with aura -A: ${missing[*]}"
-    aura -A --needed --noconfirm "${missing[@]}"
+    aura -A --noconfirm "${missing[@]}"
   else
     echo "✅ All aura -A packages already installed"
   fi
@@ -118,15 +118,6 @@ install_fnm() {
     ~/.local/share/fnm/fnm default "$(~/.local/share/fnm/fnm current)"
   else
     echo "✅ fnm already installed"
-  fi
-}
-
-install_claude() {
-  if ! command -v claude &>/dev/null; then
-    echo "📥 Installing claude..."
-    npm install -g @anthropic-ai/claude-code
-  else
-    echo "✅ claude already installed"
   fi
 }
 
@@ -202,9 +193,6 @@ fi
 
 # 1. Link ~/
 link "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
-link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
-link "$DOTFILES_DIR/claude/commands" "$HOME/.claude/commands"
-link "$DOTFILES_DIR/claude/scripts" "$HOME/.claude/scripts"
 
 # 2. Link ~/.config/*
 for dir in "$DOTFILES_DIR/config/"*; do
@@ -225,7 +213,6 @@ install_aura_pkgs
 install_aura_bin_pkgs
 install_uv
 install_fnm
-install_claude
 
 # 5. Install Solarized Osaka GTK theme
 install_osaka_theme "$FORCE_ICONS_THEMES"
