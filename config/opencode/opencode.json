@@ -1,10 +1,10 @@
 {
 	"$schema": "https://opencode.ai/config.json",
 	"model": "zai-coding-plan/glm-4.6",
-  "keybinds": {
-    "messages_half_page_up": "ctrl+u",
-    "messages_half_page_down": "ctrl+d",
-  },
+	"keybinds": {
+		"messages_half_page_up": "ctrl+u",
+		"messages_half_page_down": "ctrl+d"
+	},
 	"mcp": {
 		"atlassian": {
 			"type": "local",
