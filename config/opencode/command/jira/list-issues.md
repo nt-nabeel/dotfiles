@@ -319,4 +319,3 @@ issues:
 ```
 
 This command provides comprehensive visibility into your local Jira issue management workflow.
-

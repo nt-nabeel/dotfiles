@@ -368,4 +368,3 @@ jira:list-issues
 ```
 
 This command provides comprehensive bidirectional synchronization between your local issue management and Jira.
-

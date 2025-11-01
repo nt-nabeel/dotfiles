@@ -108,6 +108,6 @@ Improve and integrate them into the new AGENTS.md. If AGENTS.md already exists, 
 
 Make the AGENTS.md approximately 30-50 lines long, well-structured with clear sections, and include specific commands that agents can execute. Focus on actionable information that helps AI agents work effectively in this codebase.
 
-## User Arguments
+---
 
-$ARGUMENTS
+**User Arguments**: $ARGUMENTS

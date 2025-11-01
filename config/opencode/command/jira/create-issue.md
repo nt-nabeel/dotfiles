@@ -233,6 +233,8 @@ issues:
     updated_at: "2025-01-01T10:00:00Z"
 ```
 
+---
+
 **User Arguments**: $ARGUMENTS
 
 **Argument Parsing**:
@@ -241,4 +243,3 @@ issues:
 - Extract keywords for type and priority detection
 - Generate appropriate summary and description
 - Handle special cases (epics, bugs, features)
-
