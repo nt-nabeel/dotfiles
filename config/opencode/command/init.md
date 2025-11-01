@@ -1,6 +1,6 @@
 ---
 name: init
-description: Project initialization
+description: Initialize AGENTS.md with comprehensive project analysis
 agent: build
 subtask: true
 ---
