@@ -15,7 +15,7 @@ This repository contains a comprehensive set of configuration files for a fully-
 - **Sway WM**: Minimalistic tiling window manager with vim-style keybindings
 - **Neovim**: NvChad-based configuration with LSP, Copilot, and modern plugins
 - **Fish Shell**: Powerful shell with modular configuration and smart completions
-- **AI-Assisted Development**: Claude Code integration with custom commands
+- **AI-Assisted Development**: OpenCode integration with custom commands
 - **Automated Setup**: One-command installation with backup handling
 
 ## 📁 Repository Structure
@@ -24,6 +24,11 @@ This repository contains a comprehensive set of configuration files for a fully-
 .
 ├── config/                    # Application configurations
 │   ├── nvim/                  # Neovim (NvChad) configuration
+│   │   ├── lua/              # Lua configuration files
+│   │   │   ├── configs/      # Plugin configurations
+│   │   │   ├── plugins/      # Plugin definitions
+│   │   │   └── ...           # Core Neovim configs
+│   │   └── init.lua          # Entry point
 │   ├── fish/                  # Fish shell configuration
 │   │   ├── conf.d/           # Modular fish configurations
 │   │   └── completions/      # Command completions
@@ -31,12 +36,14 @@ This repository contains a comprehensive set of configuration files for a fully-
 │   ├── waybar/               # Status bar configuration
 │   ├── wezterm/              # Terminal emulator settings
 │   ├── rofi/                 # Application launcher themes
+│   ├── opencode/             # OpenCode AI assistant configuration
+│   │   ├── command/          # Custom command definitions
+│   │   └── opencode.json     # Main configuration
+│   ├── systemd/user/         # User systemd services
 │   ├── biome.json           # Code formatter configuration
 │   └── ...                   # Other tool configurations
-├── claude/                    # Claude Code settings
-│   ├── settings.json         # Claude configuration
-│   └── commands/             # Custom Claude commands
 ├── local/share/              # Local data (wallpapers, etc.)
+│   └── wallpapers/          # Custom wallpaper collection
 ├── .gitignore               # Git ignore rules
 ├── gitconfig                # Git configuration
 └── install.sh               # Installation script
@@ -77,6 +84,7 @@ The installation script will:
 - Create symbolic links for all configuration files
 - Back up existing configurations to `backup/` directory
 - Install Solarized Osaka GTK theme from external repository
+- Set up OpenCode AI assistant with custom commands
 
 ## 🛠️ Configured Tools
 
@@ -92,33 +100,38 @@ The installation script will:
 
 ### Window Management & UI
 
-| Tool          | Description           | Configuration                                       |
-| ------------- | --------------------- | --------------------------------------------------- |
-| **Sway**      | Tiling window manager | `config/sway/config` - Vim-style keybindings        |
-| **Waybar**    | Status bar            | `config/waybar/` - Custom styling and modules       |
-| **Kanshi**    | Display management    | `config/kanshi/config` - Automatic monitor profiles |
-| **Rofi**      | Application launcher  | `config/rofi/` - Custom themes and shortcuts        |
-| **WezTerm**   | Terminal emulator     | `config/wezterm/` - Solarized Osaka theme           |
-| **Dunst**     | Notification daemon   | `config/dunst/`                                     |
-| **Gammastep** | Blue light filter     | Started via Sway config with geo-location           |
+| Tool        | Description           | Configuration                                       |
+| ----------- | --------------------- | --------------------------------------------------- |
+| **Sway**    | Tiling window manager | `config/sway/config` - Vim-style keybindings        |
+| **Waybar**  | Status bar            | `config/waybar/` - Custom styling and modules       |
+| **Kanshi**  | Display management    | `config/kanshi/config` - Automatic monitor profiles |
+| **Rofi**    | Application launcher  | `config/rofi/` - Custom themes and shortcuts        |
+| **WezTerm** | Terminal emulator     | `config/wezterm/` - Solarized Osaka theme           |
+| **Dunst**   | Notification daemon   | `config/dunst/`                                     |
+| **btop**    | Resource monitor      | `config/btop/` - System monitoring interface        |
 
 ### Development Tools
 
 | Tool         | Purpose                                 | Configuration                      |
 | ------------ | --------------------------------------- | ---------------------------------- |
-| **uv**       | Python package management               | `config/fish/conf.d/uv.env.fish`   |
+| **uv**       | Python package management               | `config/fish/conf.d/uv.fish`       |
+| **uvx**      | Python package execution                | `config/fish/completions/uvx.fish` |
 | **fnm**      | Node.js version management              | `config/fish/conf.d/fnm.fish`      |
 | **bat**      | Enhanced `cat` with syntax highlighting | `config/fish/conf.d/bat.fish`      |
 | **eza**      | Modern `ls` replacement                 | `config/fish/conf.d/eza.fish`      |
 | **zoxide**   | Smart directory navigation              | `config/fish/conf.d/zoxide.fish`   |
 | **starship** | Custom shell prompt                     | `config/fish/conf.d/starship.fish` |
+| **go**       | Go development tools                    | `config/fish/conf.d/go.fish`       |
+| **flutter**  | Flutter development                     | `config/fish/conf.d/flutter.fish`  |
+| **podman**   | Container management                    | `config/fish/conf.d/podman.fish`   |
+| **lmstudio** | AI model management                     | `config/fish/conf.d/lmstudio.fish` |
 
 ### AI & Productivity
 
-| Tool            | Description                      | Configuration                            |
-| --------------- | -------------------------------- | ---------------------------------------- |
-| **Claude Code** | AI-powered development assistant | `claude/` - Custom commands and settings |
-| **btop**        | Resource monitor                 | `config/btop/`                           |
+| Tool         | Description                      | Configuration                                     |
+| ------------ | -------------------------------- | ------------------------------------------------- |
+| **OpenCode** | AI-powered development assistant | `config/opencode/` - Custom commands and settings |
+| **btop**     | Resource monitor                 | `config/btop/`                                    |
 
 ## ⌨️ Key Features
 
@@ -147,13 +160,20 @@ The installation script will:
 - **Theme Support**: Solarized Osaka Dark color scheme
 - **Environment Management**: Proper integration with `fnm` and `uv`
 
-### Claude Code Integration
+### OpenCode Integration
 
 Custom commands for enhanced productivity:
 
-- `/check-docs`: Documentation health check and coverage analysis
-- `/suggest-commit`: Intelligent conventional commit message suggestions
-- `/update-docs`: Automatic documentation updates based on code changes
+- `/agent create`: Create new AI agents for specific tasks
+- `/agent improve`: Improve existing agent configurations
+- `/code create`: Generate new code components
+- `/code improve`: Enhance existing code
+- `/command create`: Create custom commands
+- `/command improve`: Improve existing commands
+- `/git commit-suggest`: Intelligent commit message suggestions
+- `/jira create`: Create Jira tickets
+- `/jira list`: List Jira issues
+- `/jira sync`: Sync with Jira
 
 ## 🎨 Theming
 
@@ -227,7 +247,7 @@ The installation manages three categories of packages:
 ### Getting Help
 
 - Check individual configuration files for inline comments
-- Use the Claude Code `/check-docs` command for documentation analysis
+- Use the OpenCode `/code documentation` command for documentation analysis
 - Refer to tool-specific documentation for advanced configuration
 
 ## 📄 License
