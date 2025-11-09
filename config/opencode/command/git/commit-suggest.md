@@ -15,6 +15,7 @@ Analyze staged git changes and generate one high-quality conventional commit mes
 ## Output
 
 Generate conventional commit message:
+
 ```
 type(scope): description
 
@@ -24,6 +25,7 @@ Closes: #123
 ```
 
 **Error Handling**:
+
 - No staged changes: Prompt to stage files
 - Git errors: Check repository status and permissions
 

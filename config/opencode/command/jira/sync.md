@@ -16,11 +16,13 @@ Sync all local issues from individual YAML files in `.issues/` folder to Jira us
 ## Sync Logic
 
 **New Issues**:
+
 - Validate required fields (summary, issue_type, priority)
 - Create in Jira via MCP Atlassian
 - Update local file with `jira_issue_key` and `synced: true`
 
 **Existing Issues**:
+
 - Compare local vs Jira state
 - Update changed fields only
 - Update `updated_at` timestamp
@@ -28,6 +30,7 @@ Sync all local issues from individual YAML files in `.issues/` folder to Jira us
 ## Field Mapping
 
 Map local fields to Jira:
+
 - Core: summary, description, issue_type, priority
 - Planning: parent_epic, story_points, labels, components
 - Custom: Parse description sections for Jira fields
@@ -35,6 +38,7 @@ Map local fields to Jira:
 ## Output Format
 
 Show sync results with:
+
 - **Created Issues**: New issues with Jira IDs
 - **Updated Issues**: Modified existing issues
 - **Failed Issues**: Errors with troubleshooting

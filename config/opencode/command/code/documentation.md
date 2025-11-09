@@ -15,12 +15,14 @@ Analyze staged git changes and generate relevant documentation for modified code
 ## Output
 
 Show documentation updates with:
+
 - **File paths** and modified functions
 - **Generated docstrings** in proper format
 - **Parameter descriptions** and return types
 - **Usage examples** where relevant
 
 **Error Handling**:
+
 - No staged changes: Prompt to stage files
 - Git errors: Check repository status and permissions
 

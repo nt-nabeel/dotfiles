@@ -16,16 +16,19 @@ List and display all issues stored as individual YAML files in the `.issues/` fo
 ## Output Format
 
 Show issues grouped by sync status:
+
 - **Unsynced Issues**: Local only, ready to sync
 - **Synced Issues**: Already in Jira with Jira IDs
 - **Summary Statistics**: Counts by type, priority, and status
 
 **Status Indicators**:
+
 - 🟡 Local Only
 - 🟢 Synced to Jira
 - 🔴 Sync Error
 
 **Priority Indicators**:
+
 - 🔴 Highest/High
 - 🟡 Medium
 - 🟢 Low/Lowest

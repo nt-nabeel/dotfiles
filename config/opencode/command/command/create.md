@@ -1,5 +1,5 @@
 ---
-name: opencode:create-command
+name: command:create
 description: Create new custom command following OpenCode best practices
 agent: build
 ---
@@ -16,6 +16,7 @@ Create a new custom command following OpenCode best practices and token-efficien
 ## Input Analysis
 
 Extract from user input:
+
 - **Command Name**: kebab-case name for the command
 - **Description**: Brief description for TUI display
 - **Agent**: build/plan (default: build)
@@ -27,23 +28,26 @@ Extract from user input:
 ## Best Practices
 
 **Frontmatter Structure**:
+
 ```yaml
 ---
 name: command-name
 description: Brief description for TUI
-agent: build  # or plan
-subtask: false  # optional
-model: model-name  # optional
+agent: build # or plan
+subtask: false # optional
+model: model-name # optional
 ---
 ```
 
 **Content Guidelines**:
+
 - **Concise**: Use minimal tokens while maintaining clarity
 - **Structured**: Use clear sections with ## headers
 - **Action-oriented**: Focus on what the AI should do
 - **Token-efficient**: Avoid verbose explanations and examples
 
 **Optimization Principles**:
+
 - Remove redundant explanations
 - Use bullet points over long paragraphs
 - Consolidate similar concepts
@@ -53,6 +57,7 @@ model: model-name  # optional
 ## Command Templates
 
 **Simple Command**:
+
 ```markdown
 ---
 name: simple-task
@@ -63,6 +68,7 @@ agent: build
 Perform the specified task with focus on efficiency.
 
 ## Process
+
 1. Analyze input
 2. Execute task
 3. Return results
@@ -71,6 +77,7 @@ Perform the specified task with focus on efficiency.
 ```
 
 **Command with Arguments**:
+
 ```markdown
 ---
 name: create-file
@@ -81,6 +88,7 @@ agent: build
 Create a file named $1 in directory $2 with specified content.
 
 ## Process
+
 1. Validate inputs
 2. Create directory if needed
 3. Generate file with content
@@ -90,6 +98,7 @@ Create a file named $1 in directory $2 with specified content.
 ```
 
 **Command with Shell Integration**:
+
 ```markdown
 ---
 name: analyze-project
@@ -100,6 +109,7 @@ agent: plan
 Analyze current project structure and dependencies.
 
 ## Analysis
+
 **Package Manager**:
 !`ls package.json pnpm-lock.yaml yarn.lock 2>/dev/null || echo "No package files"`
 
@@ -110,6 +120,7 @@ Analyze current project structure and dependencies.
 !`ls -la | grep -E "(src|app|components)" || echo "Standard structure not detected"`
 
 ## Output
+
 Provide analysis summary with recommendations.
 
 **User Arguments**: $ARGUMENTS
@@ -120,6 +131,7 @@ Provide analysis summary with recommendations.
 Create file at: `.opencode/command/[command-name].md`
 
 **Validation**:
+
 - Command name is kebab-case
 - Description is concise (< 50 chars)
 - Frontmatter is valid YAML
@@ -129,12 +141,14 @@ Create file at: `.opencode/command/[command-name].md`
 ## Output
 
 Show success message with:
+
 - Command location
 - Usage example (`/command-name`)
 - Key features
 - Next steps
 
 **Error Handling**:
+
 - Invalid command name: Suggest proper format
 - Missing description: Prompt for description
 - File creation error: Check permissions

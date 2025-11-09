@@ -25,12 +25,14 @@ Create a new Jira issue as an individual YAML file in the `.issues/` folder usin
 ## Smart Detection
 
 **Issue Types**:
+
 - Bug: "fix", "bug", "error", "broken", "crash"
-- Story: "implement", "add", "create", "feature", "user"  
+- Story: "implement", "add", "create", "feature", "user"
 - Task: "update", "refactor", "improve", "optimize"
 - Epic: "epic", "module", "system", "architecture"
 
 **Priority**:
+
 - Highest: "urgent", "critical", "blocking", "asap"
 - High: "important", "priority", "soon", "needed"
 - Medium: "standard", "normal", "regular"
@@ -38,6 +40,7 @@ Create a new Jira issue as an individual YAML file in the `.issues/` folder usin
 - Lowest: "optional", "maybe", "someday"
 
 **Story Points**:
+
 - 1-2: Simple fixes
 - 3-5: Medium features
 - 8-13: Complex features
