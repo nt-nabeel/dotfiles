@@ -6,33 +6,6 @@
 		"messages_half_page_down": "ctrl+d"
 	},
 	"mcp": {
-		"atlassian": {
-			"type": "local",
-			"command": [
-				"podman",
-				"run",
-				"-i",
-				"--rm",
-				"-e",
-				"CONFLUENCE_USERNAME",
-				"-e",
-				"CONFLUENCE_API_TOKEN",
-				"-e",
-				"JIRA_USERNAME",
-				"-e",
-				"JIRA_API_TOKEN",
-				"--env-file",
-				".mcp-atlassian.env",
-				"ghcr.io/sooperset/mcp-atlassian:latest"
-			],
-			"environment": {
-				"CONFLUENCE_USERNAME": "{env:ATLASSIAN_USERNAME}",
-				"CONFLUENCE_API_TOKEN": "{env:ATLASSIAN_API_TOKEN}",
-				"JIRA_USERNAME": "{env:ATLASSIAN_USERNAME}",
-				"JIRA_API_TOKEN": "{env:ATLASSIAN_API_TOKEN}"
-			},
-			"enabled": false
-		},
 		"context7": {
 			"type": "remote",
 			"url": "https://mcp.context7.com/mcp",

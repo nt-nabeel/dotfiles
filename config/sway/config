@@ -21,7 +21,7 @@ set $menu rofi -show drun
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg "~/.local/share/wallpapers/Solarized Hexagons Wallpaper.png" fill
+output * bg "~/.local/share/wallpapers/Osaka Jade House.jpg" fill
 #
 # Example configuration:
 #

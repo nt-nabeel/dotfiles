@@ -4,76 +4,24 @@ description: Generate documentation from staged git changes
 agent: build
 ---
 
-Analyze staged git changes and generate relevant documentation for the modified code.
+Analyze staged git changes and generate relevant documentation for modified code.
 
-## Analysis Process
+## Process
 
-1. **Git Analysis**:
-   - Check repository status and staged changes
-   - Analyze detailed diff for change patterns
-   - Identify modified functions, classes, and modules
+1. **Git Analysis**: Check staged changes, analyze diff patterns, identify modified functions/classes
+2. **Documentation Generation**: Extract signatures, generate docstrings, update existing docs, add comments
+3. **Formatting**: Follow language conventions (JSDoc, Python docstrings), include parameters, returns, examples
 
-2. **Code Documentation Generation**:
-   - Extract function signatures and class definitions
-   - Generate docstrings for new functions/methods
-   - Update existing documentation for modified code
-   - Add inline comments for complex logic
+## Output
 
-3. **Documentation Formatting**:
-   - Follow language-specific documentation conventions
-   - Generate appropriate comment formats (JSDoc, Python docstrings, etc.)
-   - Include parameter descriptions and return types
-   - Add usage examples where relevant
+Show documentation updates with:
+- **File paths** and modified functions
+- **Generated docstrings** in proper format
+- **Parameter descriptions** and return types
+- **Usage examples** where relevant
 
-## Output Format
+**Error Handling**:
+- No staged changes: Prompt to stage files
+- Git errors: Check repository status and permissions
 
-### Successful Documentation Generation
-
-````markdown
-## Documentation Updates
-
-### File: src/example.js
-
-```javascript
-/**
- * Processes user input and validates data
- * @param {string} input - The user input to process
- * @param {Object} options - Configuration options
- * @returns {Promise<Object>} Processed and validated data
- */
-async function processInput(input, options) {
-  // Implementation details...
-}
-```
-
-### File: utils/helper.py
-
-```python
-def calculate_total(items: List[Dict[str, Any]]) -> float:
-    """
-    Calculate the total sum of item values.
-
-    Args:
-        items: List of dictionaries containing item data
-
-    Returns:
-        Total sum of all item values
-
-    Raises:
-        ValueError: If items list is empty or contains invalid data
-    """
-    pass
-```
-````
-
-### No Staged Changes
-
-```markdown
-⚠️ No staged changes found. Stage files with `git add .` then retry.
-```
-
-### Error Handling
-
-```markdown
-❌ Documentation generation failed. Check repository status and file permissions.
-```
+**Focus**: New functions, modified signatures, complex logic needing explanation.
